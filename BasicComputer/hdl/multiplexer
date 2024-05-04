@@ -1,0 +1,125 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001fd1c5f6840 .scope module, "multiplexer" "multiplexer" 2 2;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 16 "in0";
+    .port_info 1 /INPUT 16 "in1";
+    .port_info 2 /INPUT 16 "in2";
+    .port_info 3 /INPUT 16 "in3";
+    .port_info 4 /INPUT 16 "in4";
+    .port_info 5 /INPUT 16 "in5";
+    .port_info 6 /INPUT 16 "in6";
+    .port_info 7 /INPUT 16 "in7";
+    .port_info 8 /INPUT 3 "select";
+    .port_info 9 /OUTPUT 16 "out";
+P_000001fd1c7b5e70 .param/l "W" 0 2 2, +C4<00000000000000000000000000010000>;
+o000001fd1c7b6fd8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c5f6d00_0 .net "in0", 15 0, o000001fd1c7b6fd8;  0 drivers
+o000001fd1c7b7008 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c5f7150_0 .net "in1", 15 0, o000001fd1c7b7008;  0 drivers
+o000001fd1c7b7038 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c5f6a80_0 .net "in2", 15 0, o000001fd1c7b7038;  0 drivers
+o000001fd1c7b7068 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c5f6b20_0 .net "in3", 15 0, o000001fd1c7b7068;  0 drivers
+o000001fd1c7b7098 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c7b3ea0_0 .net "in4", 15 0, o000001fd1c7b7098;  0 drivers
+o000001fd1c7b70c8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c7b3f40_0 .net "in5", 15 0, o000001fd1c7b70c8;  0 drivers
+o000001fd1c7b70f8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c7b3fe0_0 .net "in6", 15 0, o000001fd1c7b70f8;  0 drivers
+o000001fd1c7b7128 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001fd1c7b4080_0 .net "in7", 15 0, o000001fd1c7b7128;  0 drivers
+v000001fd1c7b4120_0 .var "out", 15 0;
+o000001fd1c7b7188 .functor BUFZ 3, C4<zzz>; HiZ drive
+v000001fd1c7b41c0_0 .net "select", 2 0, o000001fd1c7b7188;  0 drivers
+E_000001fd1c7b6cb0/0 .event anyedge, v000001fd1c7b41c0_0, v000001fd1c5f6d00_0, v000001fd1c5f7150_0, v000001fd1c5f6a80_0;
+E_000001fd1c7b6cb0/1 .event anyedge, v000001fd1c5f6b20_0, v000001fd1c7b3ea0_0, v000001fd1c7b3f40_0, v000001fd1c7b3fe0_0;
+E_000001fd1c7b6cb0/2 .event anyedge, v000001fd1c7b4080_0;
+E_000001fd1c7b6cb0 .event/or E_000001fd1c7b6cb0/0, E_000001fd1c7b6cb0/1, E_000001fd1c7b6cb0/2;
+    .scope S_000001fd1c5f6840;
+T_0 ;
+    %wait E_000001fd1c7b6cb0;
+    %load/vec4 v000001fd1c7b41c0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 3, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %dup/vec4;
+    %pushi/vec4 4, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.4, 6;
+    %dup/vec4;
+    %pushi/vec4 5, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.5, 6;
+    %dup/vec4;
+    %pushi/vec4 6, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.6, 6;
+    %dup/vec4;
+    %pushi/vec4 7, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.7, 6;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.0 ;
+    %load/vec4 v000001fd1c5f6d00_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.1 ;
+    %load/vec4 v000001fd1c5f7150_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.2 ;
+    %load/vec4 v000001fd1c5f6a80_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.3 ;
+    %load/vec4 v000001fd1c5f6b20_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.4 ;
+    %load/vec4 v000001fd1c7b3ea0_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.5 ;
+    %load/vec4 v000001fd1c7b3f40_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.6 ;
+    %load/vec4 v000001fd1c7b3fe0_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.7 ;
+    %load/vec4 v000001fd1c7b4080_0;
+    %store/vec4 v000001fd1c7b4120_0, 0, 16;
+    %jmp T_0.9;
+T_0.9 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "multiplexer.v";

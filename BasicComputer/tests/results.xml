@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1702327896" />
+    <testcase name="test_memory_operations" classname="BC_I_cocotb_test" file="D:\BasicComputer\tests\BC_I_cocotb_test.py" lineno="13" time="0.0" sim_time_ns="6.0" ratio_time="inf">
+      <failure message="Test failed with RANDOM_SEED=1702327896" />
+    </testcase>
+  </testsuite>
+</testsuites>
